@@ -4,10 +4,10 @@
     <text>로그 페이지로 전환 성공</text>
 
     <van-tabbar v-model="active">
-        <van-tabbar-item icon="home-o">Home</van-tabbar-item>
-        <van-tabbar-item icon="search">Search</van-tabbar-item>
-        <van-tabbar-item icon="friends-o">People</van-tabbar-item>
-        <van-tabbar-item icon="setting-o">Setting</van-tabbar-item>
+        <van-tabbar-item icon="wap-home">Home</van-tabbar-item>
+        <van-tabbar-item icon="chat">Chat</van-tabbar-item>
+        <van-tabbar-item icon="like">Like</van-tabbar-item>
+        <van-tabbar-item icon="user">Profile</van-tabbar-item>
     </van-tabbar>
     
 </scroll-view>
