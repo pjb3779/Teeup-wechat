@@ -1,21 +1,22 @@
-// logs.ts
-// const util = require('../../utils/util.js')
-import { formatTime } from '../../utils/util'
-
-Component({
-  data: {
-    logs: [],
-  },
-  lifetimes: {
-    attached() {
+const APP = getApp<IAppOption>()
+Page({
+    data: {
+      active: 0,
+      userInfo: {
+        avatarUrl: '',
+        nickName: '',
+      },
+    },
+  
+    onLoad() {
+      const userInfo = APP.globalData.userInfo
       this.setData({
-        logs: (wx.getStorageSync('logs') || []).map((log: string) => {
-          return {
-            date: formatTime(new Date(log)),
-            timeStamp: log
-          }
-        }),
+        userInfo
       })
+    },
+  
+    onChange(event) {
+      this.setData({ active: event.detail })
     }
-  },
-})
+  })
+  
