@@ -15,8 +15,8 @@ Page({
       })
     },
   
-    onChange(event) {
-      this.setData({ active: event.detail })
-    }
+    onChange(event: any) {
+        this.setData({ active: event.detail })
+      }      
   })
   
