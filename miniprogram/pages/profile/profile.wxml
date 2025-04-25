@@ -1,18 +1,13 @@
-<!-- pages/logs/logs.wxml -->
 <navigation-bar title="TeeUp" back="{{true}}" color="black" background="#FFF"/>
 
-<!-- 1) 페이지 콘텐츠 영역 -->
 <scroll-view class="content" scroll-y>
-  <text>로그 페이지입니다.</text>
-  <!-- …다른 내용들… -->
+  <!-- 실제 채팅 UI를 이곳에 작성하세요 -->
+  <view class="chat-placeholder">
+    <text>프로필 페이지입니다.</text>
+  </view>
 </scroll-view>
 
-<!-- 2) 화면 하단에 고정된 탭바 -->
-<van-tabbar
-  class="fixed-tabbar"
-  active="{{active}}"
-  bind:change="change"
->
+<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change">
   <van-tabbar-item icon="wap-home">Home</van-tabbar-item>
   <van-tabbar-item icon="chat">Chat</van-tabbar-item>
   <van-tabbar-item icon="like">Like</van-tabbar-item>

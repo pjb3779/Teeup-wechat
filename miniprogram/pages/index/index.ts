@@ -41,9 +41,9 @@ Component({
       if (hasInfo) {        
         getApp().globalData.userInfo = this.data.userInfo
         setTimeout(() => {
-          wx.redirectTo({
-            url: '/pages/logs/logs'
-          })
+            wx.switchTab({
+                url: '/pages/logs/logs'
+            })
         }, 0) // 렌더링 건너뛰고 바로 라우팅
       }      
     },

@@ -1,19 +1,15 @@
-const APP = getApp<IAppOption>()
-
 Page({
   data: {
-    active: 0,
+    active: 1,  // Chat 탭 인덱스
     userInfo: {
       avatarUrl: '',
       nickName: '',
     },
   },
-
+  
   onLoad() {
-    const userInfo = APP.globalData.userInfo
-    this.setData({
-      userInfo
-    })
+    const userInfo = APP.globalData.userInfo;
+    this.setData({ userInfo });
   },
 
   change(event: any) {
@@ -30,4 +26,4 @@ Page({
     wx.switchTab({ url: urls[index] });
   }
   
-})
+});

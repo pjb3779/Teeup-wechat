@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/chatting/chatting",
+    "pages/like/like",
+    "pages/profile/profile"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -22,6 +25,15 @@
       "sdkVersionBegin": "3.0.0",
       "sdkVersionEnd": "15.255.255"
     }
+  }, 
+  "tabBar": {  
+    "custom": true,
+    "list": [
+      { "pagePath": "pages/logs/logs", "text": "Home" },
+      { "pagePath": "pages/chatting/chatting", "text": "Chat" },
+      { "pagePath": "pages/like/like", "text": "Like" },
+      { "pagePath": "pages/profile/profile", "text": "Profile" }
+    ]
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
