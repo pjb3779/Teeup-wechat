@@ -7,7 +7,7 @@
   </view>
 </scroll-view>
 
-<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change">
+<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">  
   <van-tabbar-item icon="wap-home">Home</van-tabbar-item>
   <van-tabbar-item icon="chat">Chat</van-tabbar-item>
   <van-tabbar-item icon="like">Like</van-tabbar-item>

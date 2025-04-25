@@ -22,8 +22,13 @@ Page({
       '/pages/like/like',
       '/pages/profile/profile'
     ];
-  
     wx.switchTab({ url: urls[index] });
-  }
-  
+  },
+    // 검색 실행 시
+    onSearch(e: any) {
+        const value = e.detail;
+        wx.showToast({ title: `검색: ${value}`, icon: 'none' });
+        this.setData({ searchValue: value });
+        // TODO: 실제 검색 로직 연결
+      }
 });
