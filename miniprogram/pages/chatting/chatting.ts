@@ -26,8 +26,13 @@ Page({
   },
     // 검색 실행 시
     onSearch(e: any) {
-        const value = e.detail;
-        wx.showToast({ title: `검색: ${value}`, icon: 'none' });
+        const value = e.detail.trim();
+        if(!value){
+            wx.showToast({ title: `검색어를 입력하세요. ${value}`, icon: 'none' });
+        }
+        else{
+            wx.showToast({ title: `검색: ${value}`, icon: 'none' });
+        }
         this.setData({ searchValue: value });
         // TODO: 실제 검색 로직 연결
       }

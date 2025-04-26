@@ -7,7 +7,9 @@ App<IAppOption>({
         country: '',
         gender: 0,
         language: 'en',
-        province: ''
+        golf_avg: 0,
+        age: 0,
+        golf_purpose: 0,
       }
     }
   })

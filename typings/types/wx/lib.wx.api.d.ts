@@ -891,6 +891,7 @@ backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb
         telNumber: string
         /** 收货人姓名 */
         userName: string
+
     }
     /** 返回选择的文件的本地临时文件对象数组 */
     interface ChooseFile {
@@ -6254,14 +6255,10 @@ wx.getSetting({
     }
     /** 用户信息 */
     interface UserInfo {
-        /** 用户头像图片的 URL。URL 最后一个数值代表正方形头像大小（有 0、46、64、96、132 数值可选，0 代表 640x640 的正方形头像，46 表示 46x46 的正方形头像，剩余数值以此类推。默认132），用户没有头像时该项为空。若用户更换头像，原有头像 URL 将失效。 */
         avatarUrl: string
-        /** 用户所在城市 */
         city: string
-        /** 用户所在国家 */
         country: string
         /** 用户性别
-         *
          * 可选值：
          * - 0: 未知;
          * - 1: 男性;
@@ -6276,8 +6273,10 @@ wx.getSetting({
         language: 'en' | 'zh_CN' | 'zh_TW'
         /** 用户昵称 */
         nickName: string
-        /** 用户所在省份 */
-        province: string
+        age: number
+        golf_avg: number
+        /*0 : 아직 모름, 1 : 비슷한 나이대 만나기, 2 : 같은 레벨 친구 만나기 */
+        golf_purpose: 0 | 1 | 2
     }
     interface VibrateLongOption {
         /** 接口调用结束的回调函数（调用成功、失败都会执行） */
