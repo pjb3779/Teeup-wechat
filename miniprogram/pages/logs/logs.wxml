@@ -4,7 +4,7 @@
 <!-- 1) 페이지 콘텐츠 영역 -->
 <scroll-view class="content" scroll-y>
   <text>로그 페이지입니다.</text>
-  <!-- …다른 내용들… -->
+  <image class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
 </scroll-view>
 
 <!-- 2) 화면 하단에 고정된 탭바 -->
