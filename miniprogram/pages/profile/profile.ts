@@ -1,14 +1,22 @@
 Page({
     data: {
-      active: 3,  // Chat 탭 인덱스
-      userInfo: {
-        avatarUrl: '',
-        nickName: '',
+        active: 3,  // Profile 탭 인덱스
+        userInfo: {
+          avatarUrl: '',
+          nickName: '',
+          city: '',
+          country: '',
+          gender: 0,
+          language: 'en',
+          golf_avg: 0,
+          age: 0
+        },
       },
-    },
     
     onLoad() {
+      const APP = getApp();
       const userInfo = APP.globalData.userInfo;
+      console.log('Loaded userInfo:', userInfo);  // userInfo 객체 확인
       this.setData({ userInfo });
     },
   

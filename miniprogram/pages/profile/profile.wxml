@@ -1,9 +1,11 @@
 <navigation-bar title="TeeUp" back="{{true}}" color="black" background="#FFF"/>
 
 <scroll-view class="content" scroll-y>
-  <!-- 실제 채팅 UI를 이곳에 작성하세요 -->
-  <view class="chat-placeholder">
-    <text>프로필 페이지입니다.</text>
+  <view class="profile">
+    <!-- 프로필 이미지 -->
+    <text>프로필</text>
+    <image class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+
   </view>
 </scroll-view>
 
