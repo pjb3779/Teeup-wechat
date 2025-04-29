@@ -1,13 +1,36 @@
-<navigation-bar title="TeeUp" back="{{true}}" color="black" background="#FFF"/>
+<!-- Header Menu 3 -->
+<view class="header-menu">
+  <text style="border: 10px;">约定目录</text>
+</view>
 
+<view class="header-line"></view> <!-- 텍스트 밑에 바 추가 -->
+
+<!-- 여러 개의 컨테이너 복사 -->
 <scroll-view class="content" scroll-y>
-  <!-- 실제 채팅 UI를 이곳에 작성하세요 -->
-  <view class="chat-placeholder">
-    <text>관심 페이지입니다.</text>
+<view class="page-container"> <!-- 부모 요소에 position: relative 추가 -->
+    <view class="container">
+        <view class="user-info" style="display: flex; gap: 10px;">
+            <view class="avatar"></view>
+            <text style="font-weight: 1000; font-size: 14px; line-height: 22px;"> Sonny </text>
+        </view>
+
+    </view>
+
+  <view class="container">
+    <text>여기에 컨텐츠를 넣으세요!</text>
   </view>
+
+  <view class="container">
+    <text>여기에 컨텐츠를 넣으세요!</text>
+  </view>
+
+  <view class="container">
+  </view>
+</view>
 </scroll-view>
 
-<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">  
+
+<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296" style="z-index: 9999;">
   <van-tabbar-item icon="wap-home">Home</van-tabbar-item>
   <van-tabbar-item icon="chat">Chat</van-tabbar-item>
   <van-tabbar-item icon="like">Like</van-tabbar-item>

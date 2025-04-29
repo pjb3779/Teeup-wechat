@@ -3,8 +3,14 @@
 
 <!-- 1) 페이지 콘텐츠 영역 -->
 <scroll-view class="content" scroll-y>
-  <text>로그 페이지입니다.</text>
-  <image class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="text-wrapper">
+        <text class="text">Welcome To TeeUp.</text>
+        <text class="text-name">{{userInfo.nickName}}</text>
+    </view>
+
+    <view class="avatar">
+        <image class="avatar-img" src="{{userInfo.avatarUrl}}"></image>
+    </view>
 </scroll-view>
 
 <!-- 2) 화면 하단에 고정된 탭바 -->

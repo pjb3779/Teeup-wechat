@@ -1,0 +1,38 @@
+.text {
+    position: absolute;
+    top: 103px;
+    left: 20px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 300;
+    color: #565E6CFF;
+  }
+  
+  .text-name {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    width: 128px;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #171A1FFF;
+  }
+  
+  .content{
+      height: 100%;
+  }
+
+//  /* Avatar 스타일 (동그라미로 표시) */
+//   .avatar {
+//     top: 109px;
+//     width: 44px;  /* 원 크기 설정 */
+//     height: 44px; /* 원 크기 설정 */
+//     overflow: hidden;
+//     border-radius: 50%; /* 원형으로 만들기 */
+//   }
+  
+//   .avatar .avatar-img {
+//     width: 100%;  /* 이미지가 부모 크기에 맞게 확대 */
+//     height: 100%; /* 이미지가 부모 크기에 맞게 확대 */
+//   }
