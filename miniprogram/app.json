@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/chatting/chatting",
     "pages/like/like",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/rate/rate"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -15,7 +16,10 @@
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-config-provider": "@vant/weapp/config-provider/index",
+    "van-rate":"@vant/weapp/rate/index",
+    "van-dialog":"@vant/weapp/dialog/index"
   },
   "rendererOptions": {
     "skyline": {

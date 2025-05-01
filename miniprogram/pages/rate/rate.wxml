@@ -1,0 +1,66 @@
+<!-- pages/rate/rate.wxml -->
+<view class="rate-page">
+    <!-- 헤더 -->
+    <view class="rate-header">
+        <van-icon name="arrow-left" size="24px" bind:click="goBack" />
+        <text class="header-title" style="margin-left: 20px;">评价</text>
+    </view>
+
+    <!-- 프로필 카드 -->
+    <view class="profile-card">
+        <image class="avatar" src="{{ avatarUrl }}" />
+        <text class="user-name">{{ userName }}</text>
+        <text class="sub-text">Share your experience working together!</text>
+        <van-rate value="{{ star }}" bind:change="onRateChange" color="#F26C7C" size="32" />
+        <text class="rating-label">
+            {{ star >= 4 ? 'Awesome!' : 'Thanks for rating!' }}
+        </text>
+    </view>
+
+    <!-- Other Reviews -->
+    <view class="section">
+        <text class="section-title">Other Reviews</text>
+        <text class="sub-text" style="margin-left: 10px;">Maximum 3 choices</text>
+        <view class="tags">
+            <view
+                wx:for="{{ tagOptions }}"
+                wx:for-item="item"
+                wx:for-index="idx"
+                wx:key="label"
+                bindtap="toggleTag"
+                data-idx="{{ idx }}"
+                class="{{ item.active ? 'tag active' : 'tag' }}"
+            >
+                {{ item.label }}
+            </view>
+        </view>
+    </view>
+
+    <!-- Comments -->
+    <view class="section">
+        <text class="section-title">Comments</text>
+        <textarea class="comment-box" value="{{ comment }}" bind:input="onCommentInput" placeholder="Write your comments..." />
+    </view>
+
+    <!-- Submit  -->
+    <view style="margin-top: 24px; display: flex; justify-content: center;">
+    <van-button
+        type="primary"
+        bind:click="submitReview"
+        custom-style="width: 335px; background-color: #004225; color: white; border-radius: 24px;"
+    >
+        Submit
+    </van-button>
+    </view>
+
+    <!--Dialog -->
+    <van-dialog
+    id="review-dialog"
+    show="{{ showDialog }}"
+    show-confirm-button="true"
+    title="{{ dialogTitle }}"
+    message="{{ dialogMessage }}"
+    bind:close="onDialogClose"
+    />
+
+</view>

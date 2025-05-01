@@ -20,7 +20,7 @@
             <!-- 평가 전 -->
             <van-button
                 wx:if="{{ !isRated }}"
-                bind:click="handleRate"
+                bind:click="goToRatePage"
                 custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#004225;color:#FFFFFF;border:none;border-radius:18px;"
             >Rate</van-button>
 
