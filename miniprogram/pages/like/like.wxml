@@ -16,6 +16,21 @@
             <van-icon class= "warning" name="warning-o" size="20px" color="#333" />
         </view>
 
+        <view class="button">
+            <!-- 평가 전 -->
+            <van-button
+                wx:if="{{ !isRated }}"
+                bind:click="handleRate"
+                custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#004225;color:#FFFFFF;border:none;border-radius:18px;"
+            >Rate</van-button>
+
+            <!-- 평가 후 -->
+            <van-button
+                wx:elif="{{ isRated }}"
+                custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#E7FFF4FF;color:#004225FF;border:none;border-radius:18px;"
+            >Book Again</van-button>
+        </view>
+
         <!-- 2) 구분선 -->
         <view class="line"></view>
 

@@ -9,7 +9,7 @@
     position: absolute; /* 절대 위치 */
     left: 20px;
     width: 350px;
-    height: 180px;
+    height: 230px;
     border-radius: 16px;
     border-width: 1px;
     border-style: solid;
@@ -24,15 +24,15 @@
   }
   
   .container:nth-child(2) {
-    top: 220px;
+    top: 260px;
   }
   
   .container:nth-child(3) {
-    top: 440px;
+    top: 520px;
   }
   
   .container:nth-child(4) {
-    top: 660px;
+    top: 780px;
   }
   
   /* Header Menu 3 스타일 */
@@ -116,6 +116,11 @@
     line-height: 22px;
     color: #000;          /* 필요에 따라 색 지정 */
   }
+
+  .button{
+      position: absolute; 
+      top: 170px;
+   }
 
   .container .line {
     position: absolute; 

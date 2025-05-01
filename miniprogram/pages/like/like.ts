@@ -5,6 +5,13 @@ Page({
         avatarUrl: '',
         nickName: '',
       },
+      isRated: false
+    },
+    
+    handleRate(){
+        this.setData({
+            isRated: true
+        })
     },
     
     onLoad() {
