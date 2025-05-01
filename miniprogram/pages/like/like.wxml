@@ -9,12 +9,29 @@
 <scroll-view class="content" scroll-y>
 <view class="page-container"> <!-- 부모 요소에 position: relative 추가 -->
     <view class="container">
-        <view class="user-info" style="display: flex; gap: 10px;">
+        <!-- 1) user-info -->
+        <view class="user-info">
             <view class="avatar"></view>
-            <text style="font-weight: 1000; font-size: 14px; line-height: 22px;"> Sonny </text>
+            <text class="text">Sonny</text>
+            <van-icon class= "warning" name="warning-o" size="20px" color="#333" />
         </view>
 
+        <!-- 2) 구분선 -->
+        <view class="line"></view>
+
+        <!-- 3) 캘린더 + 날짜 -->
+        <view class="calendar-display">
+            <van-icon name="calendar-o" size="20px" color="#333" />
+            <text class="info-text">2025年 5月 1号（星期四）</text>
+        </view>
+
+        <!-- 4) 시계 + 시간 -->
+        <view class="clock-display">
+            <van-icon name="clock-o" size="20px" color="#333" />
+            <text class="info-text">09:30 AM - 14:30 PM</text>
+        </view>
     </view>
+
 
   <view class="container">
     <text>여기에 컨텐츠를 넣으세요!</text>

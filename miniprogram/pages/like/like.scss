@@ -1,5 +1,5 @@
 /* 부모 요소에 position: relative 추가 */
-  .page-container {
+.page-container {
     position: relative; /* 부모 요소에 상대 위치 지정 */
     height: calc(100vh - 250px);
   }
@@ -78,24 +78,97 @@
     border-top: 1px solid #e1e1e1;
     z-index: 9999; /* 탭바를 가장 위로 설정 */
   }
-  
+
   .content{
       overflow-y: scroll;
   }
 
-  /* Avatar 스타일 */
-  .avatar {
-    position: absolute;
-    left: 16px;
+  /* 1) user-info 전체를 절대 위치 + flex 컨테이너로 */
+  .user-info {
+    position: absolute;   /* page-container 기준으로 절대 위치 */
+    left: 16px;           /* 원래 위치 */
+    display: flex;        /* 가로 정렬 위해 */
+    align-items: center;  /* 수직 중앙 정렬 */
+  }
+  
+  /* 2) 아바타 */
+  .user-info .avatar {
+    position: static;     /* global absolute 무시 */
     width: 36px;
     height: 36px;
-    background: #808080; /* 회색 배경 */
-    border-radius: 50%; /* 원형으로 만들기 */
+    border-radius: 50%;   /* 둥근 원 */
+    overflow: hidden;
+    background: #F8DBD0FF;
+  }
+  
+  /* 3) 아바타 안의 이미지 */
+  .user-info .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* 잘라서 꽉 채우기 */
+  }
+  
+  /* 4) 텍스트 (이름) */
+  .user-info .text {
+    margin-left: 13px;
+    font-weight: 1000;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;          /* 필요에 따라 색 지정 */
   }
 
-  /* 텍스트 스타일 */
-  .text {
-    margin-top: 0; /* 기본 마진 제거 */
-    margin-bottom: 0; /* 기본 마진 제거 */
-    line-height: 1; /* 텍스트 줄 간격 최소화 */
+  .container .line {
+    position: absolute; 
+    top: 75px; 
+    width: 88%; 
+    height: 0px; 
+    border-width: 1px; 
+    border-color: black; /* neutral-200 */
+    border-style: solid; 
+    transform: rotate(0deg); 
   }
+  
+  .calendar-icon {
+    position: absolute;
+    top: 90px; 
+    left: 16px;
+    color: #333;
+  }
+  
+  .clock-icon {
+    position: absolute;
+    top: 130px; 
+    left: 16px;
+    color: #333;
+  }
+
+/* 3) 캘린더 + 날짜 */
+.calendar-display {
+    position: absolute;      /* position 추가 */
+    display: flex;           /* flex 컨테이너 */
+    align-items: center;     /* 아이콘과 텍스트 수직 중앙 정렬 */
+    top: 95px;               /* 원하는 위치 지정 */
+    left: 16px;              /* 왼쪽 여백 */
+  }
+  
+  /* 4) 시계 + 시간 */
+  .clock-display {
+    position: absolute;      /* position 추가 */
+    display: flex;
+    align-items: center;
+    top: 130px;
+    left: 16px;
+  }
+  
+  /* 아이콘과 텍스트 간 간격 */
+  .calendar-display .info-text,
+  .clock-display .info-text {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .warning{
+    margin-left: 200px;
+  }
+  
