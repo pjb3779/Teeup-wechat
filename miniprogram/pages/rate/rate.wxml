@@ -9,7 +9,7 @@
     <!-- 프로필 카드 -->
     <view class="profile-card">
         <image class="avatar" src="{{ avatarUrl }}" />
-        <text class="user-name">{{ userName }}</text>
+        <text class="user-name">{{ nickName }}</text>
         <text class="sub-text">Share your experience working together!</text>
         <van-rate value="{{ star }}" bind:change="onRateChange" color="#F26C7C" size="32" />
         <text class="rating-label">

@@ -1,7 +1,7 @@
 Page({
     data: {
       star: 0,
-      userName: "Ashley Robinson",
+      nickName: "Ashley Robinson",
       avatarUrl: " ",
       tagOptions: [
         { label: "友善", active: false },          
@@ -67,6 +67,8 @@ Page({
           });
           console.log("⚠️ 코멘트 없음 경고 다이얼로그");
         } else {
+          getApp<IAppOption>().globalData.hasRated = true; 
+
           // 정상 제출 다이얼로그
           this.setData({
             dialogTitle: "感谢您的评价",
@@ -77,10 +79,13 @@ Page({
         }
     },
     
-      
     onDialogClose() {
         console.log("✅ 다이얼로그 닫힘");     // 확인 버튼 눌린 후 확인용 로그
         this.setData({ showDialog: false });
+
+        if(this.data.dialogTitle === "感谢您的评价"){
+            this.goBack();
+        }
     }
         
   });

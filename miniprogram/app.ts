@@ -1,5 +1,6 @@
 App<IAppOption>({
     globalData: {
+      hasRated: false,
       userInfo: {
         avatarUrl: '',
         nickName: '',

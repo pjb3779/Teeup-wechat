@@ -1,4 +1,4 @@
-<!-- Header Menu 3 -->
+<!--like.wxml -->
 <view class="header-menu">
   <text style="border: 10px;">约定目录</text>
 </view>
@@ -12,7 +12,7 @@
         <!-- 1) user-info -->
         <view class="user-info">
             <view class="avatar"></view>
-            <text class="text">Sonny</text>
+            <text class="text">{{ nickName }}</text>
             <van-icon class= "warning" name="warning-o" size="20px" color="#333" />
         </view>
 
@@ -63,8 +63,8 @@
 
 
 <van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296" style="z-index: 9999;">
-  <van-tabbar-item icon="wap-home">Home</van-tabbar-item>
-  <van-tabbar-item icon="chat">Chat</van-tabbar-item>
-  <van-tabbar-item icon="like">Like</van-tabbar-item>
-  <van-tabbar-item icon="user">Profile</van-tabbar-item>
+  <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
+  <van-tabbar-item icon="chat">聊天</van-tabbar-item>
+  <van-tabbar-item icon="calendar-o">约定</van-tabbar-item>
+  <van-tabbar-item icon="user">我的</van-tabbar-item>
 </van-tabbar>

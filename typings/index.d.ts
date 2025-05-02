@@ -2,6 +2,7 @@
 
 interface IAppOption {
   globalData: {
+    hasRated: boolean,
     userInfo?: WechatMiniprogram.UserInfo,
   }
   userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,

@@ -2,15 +2,15 @@
 Page({
     data: {
       active: 2,  // Chat 탭 인덱스
+      nickName: "Ashley Robinson",
       userInfo: {
         avatarUrl: '',
-        nickName: '',
-      },
+    },
       isRated: false,
     },
     
     onShow() {
-        const hasRated = getApp().globalData.hasRated;
+        const hasRated = getApp<IAppOption>().globalData.hasRated;
         if (hasRated) {
           this.setData({ isRated: true });
         }
