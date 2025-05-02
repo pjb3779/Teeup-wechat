@@ -1,7 +1,8 @@
 // pages/like/like.ts
 Page({
     data: {
-      active: 2,  // Chat 탭 인덱스
+      active: 2,  // Chat 탭 인덱스,
+      containerList: [0,1,2,3,4],
       nickName: "Ashley Robinson",
       userInfo: {
         avatarUrl: '',

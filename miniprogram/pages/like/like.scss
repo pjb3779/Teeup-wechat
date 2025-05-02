@@ -5,36 +5,21 @@
   }
   
   /* Container 스타일 */
-  .container {
-    position: absolute; /* 절대 위치 */
-    left: 20px;
-    width: 350px;
-    height: 230px;
-    border-radius: 16px;
-    border-width: 1px;
-    border-style: solid;
-    padding: 20px;
-    z-index: 10; /* 컨테이너의 z-index 설정 */
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .container:nth-child(1) {
-    top: 0px;
-  }
-  
-  .container:nth-child(2) {
-    top: 260px;
-  }
-  
-  .container:nth-child(3) {
-    top: 520px;
-  }
-  
-  .container:nth-child(4) {
-    top: 780px;
-  }
-  
+.container {
+  margin: 15px auto;
+  padding: 20px;
+  width: 350px;
+  height: 230px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;         /* 세로로 쌓고 */
+  justify-content: space-between; /* 위↔아래를 자동으로 벌립니다 */
+  align-items: flex-start;  /* 내부 아이템을 왼쪽으로 정렬 */
+}
+
   /* Header Menu 3 스타일 */
   .header-menu {
     text-align: center;
@@ -85,10 +70,10 @@
 
   /* 1) user-info 전체를 절대 위치 + flex 컨테이너로 */
   .user-info {
-    position: absolute;   /* page-container 기준으로 절대 위치 */
-    left: 16px;           /* 원래 위치 */
-    display: flex;        /* 가로 정렬 위해 */
-    align-items: center;  /* 수직 중앙 정렬 */
+    display: flex;
+    justify-content: space-between; /* 왼쪽(아바타+닉네임)과 오른쪽(아이콘)을 양쪽 정렬 */
+    align-items: center;
+    width: 100%;
   }
   
   /* 2) 아바타 */
@@ -100,7 +85,10 @@
     overflow: hidden;
     background: #F8DBD0FF;
   }
-  
+  .user-info-left {
+    display: flex;
+    align-items: center;
+  }
   /* 3) 아바타 안의 이미지 */
   .user-info .avatar img {
     width: 100%;
@@ -121,15 +109,15 @@
     text-overflow: ellipsis;   /* 말줄임표 표시 */  
     }
 
-  .button{
-      position: absolute; 
-      top: 170px;
-   }
+    /* ④ 버튼 영역 */
+    .button {
+        text-align: center;
+        margin-top: 8px;                 
+    }
 
    .container .line {
-    position: absolute; 
     top: 75px; 
-    width: 88%; 
+    width: 98%; 
     height: 0px; 
     border-top: 2px solid #004225FF;
     transform: rotate(0deg); 
@@ -152,7 +140,6 @@
 
 /* 3) 캘린더 + 날짜 */
 .calendar-display {
-    position: absolute;      /* position 추가 */
     display: flex;           /* flex 컨테이너 */
     align-items: center;     /* 아이콘과 텍스트 수직 중앙 정렬 */
     top: 95px;               /* 원하는 위치 지정 */
@@ -161,7 +148,6 @@
   
   /* 4) 시계 + 시간 */
   .clock-display {
-    position: absolute;      /* position 추가 */
     display: flex;
     align-items: center;
     top: 130px;
@@ -176,7 +162,6 @@
     color: #333;
   }
   
-  .warning{
-    margin-left: 200px;
+  .warning {
+    margin-left: auto; /* 굳이 없어도 되지만 명확히 오른쪽 정렬 */
   }
-  

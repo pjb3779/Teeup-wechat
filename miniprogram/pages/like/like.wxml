@@ -6,65 +6,58 @@
 <view class="header-line"></view> <!-- 텍스트 밑에 바 추가 -->
 
 <!-- 여러 개의 컨테이너 복사 -->
-<scroll-view class="content" scroll-y>
-<view class="page-container"> <!-- 부모 요소에 position: relative 추가 -->
-    <view class="container">
-        <!-- 1) user-info -->
+<view class="page-root">  
+    <scroll-view class="content" scroll-y>
+        <view class="page-container">
+        <view 
+            wx:for="{{containerList}}" 
+            wx:for-item="item" 
+            wx:for-index="idx" 
+            wx:key="idx" 
+            class="container"
+        >
         <view class="user-info">
-            <view class="avatar"></view>
-            <text class="text">{{ nickName }}</text>
-            <van-icon class= "warning" name="warning-o" size="20px" color="#333" />
+            <view class="user-info-left">
+                <view class="avatar"></view>
+                <text class="text">{{ nickName }}</text>
+            </view>
+            <van-icon class="warning" name="warning-o" size="20px" color="#333" />
         </view>
 
-        <view class="button">
-            <!-- 평가 전 -->
-            <van-button
-                wx:if="{{ !isRated }}"
-                bind:click="goToRatePage"
-                custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#004225;color:#FFFFFF;border:none;border-radius:18px;"
-            >Rate</van-button>
-
-            <!-- 평가 후 -->
-            <van-button
-                wx:elif="{{ isRated }}"
-                custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#E7FFF4FF;color:#004225FF;border:none;border-radius:18px;"
-            >Book Again</van-button>
-        </view>
-
-        <!-- 2) 구분선 -->
         <view class="line"></view>
 
-        <!-- 3) 캘린더 + 날짜 -->
         <view class="calendar-display">
-            <van-icon name="calendar-o" size="20px" color="#333" />
-            <text class="info-text">2025年 5月 1号（星期四）</text>
+          <van-icon name="calendar-o" size="20px" color="#333" />
+          <text class="info-text">2025年 5月 1号（星期四）</text>
         </view>
 
-        <!-- 4) 시계 + 시간 -->
         <view class="clock-display">
-            <van-icon name="clock-o" size="20px" color="#333" />
-            <text class="info-text">09:30 AM - 14:30 PM</text>
+          <van-icon name="clock-o" size="20px" color="#333" />
+          <text class="info-text">09:30 AM - 14:30 PM</text>
+        </view>
+
+
+        <view class="button">
+          <van-button
+            wx:if="{{ !isRated }}"
+            bind:click="goToRatePage"
+            custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#004225;color:#FFFFFF;border:none;border-radius:18px;"
+          >Rate</van-button>
+
+          <van-button
+            wx:elif="{{ isRated }}"
+            custom-style="width:306px;height:36px;line-height:36px;font-size:16px;font-weight:800;background:#E7FFF4FF;color:#004225FF;border:none;border-radius:18px;"
+          >Book Again</van-button>
+        </view>
+
         </view>
     </view>
+    </scroll-view>
 
-
-  <view class="container">
-    <text>여기에 컨텐츠를 넣으세요!</text>
-  </view>
-
-  <view class="container">
-    <text>여기에 컨텐츠를 넣으세요!</text>
-  </view>
-
-  <view class="container">
-  </view>
+    <van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">
+        <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
+        <van-tabbar-item icon="chat">聊天</van-tabbar-item>
+        <van-tabbar-item icon="calendar-o">约定</van-tabbar-item>
+        <van-tabbar-item icon="user">我的</van-tabbar-item>
+    </van-tabbar>
 </view>
-</scroll-view>
-
-
-<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296" style="z-index: 9999;">
-  <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
-  <van-tabbar-item icon="chat">聊天</van-tabbar-item>
-  <van-tabbar-item icon="calendar-o">约定</van-tabbar-item>
-  <van-tabbar-item icon="user">我的</van-tabbar-item>
-</van-tabbar>
