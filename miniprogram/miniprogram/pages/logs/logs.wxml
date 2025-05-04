@@ -1,0 +1,140 @@
+<navigation-bar title="TeeUp" back="{{true}}" color="black" background="#FFF"/>
+
+<scroll-view class="content" scroll-y>
+
+    <!-- 오른쪽 상단 아이콘들 -->
+    <view class="top-icons">
+    <van-icon name="chat-o" size="24px" class="icon" />
+    <van-icon name="bell" size="24px" class="icon" />
+    </view>
+
+    <!-- 환영 메시지 섹션 -->
+    <view class="welcome-section">
+        <text class="welcome-text" style="color: #565E6CFF;">Welcome to TeeUp</text>
+        <text class="username">{{userInfo.nickName}}</text>
+        
+        <!-- 위치 정보 섹션 -->
+        <view class="location-box" bindtap="chooseLocation">
+        <van-icon name="location-o" size="" color="#1989fa" />
+        <text class="location-text">
+            {{ currentLocation || '获取当前位置' }}
+        </text>
+        </view>
+    </view>
+  
+  <!-- 아바타 이미지 -->
+  <view class="avatar">
+    <image class="avatar-img" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  
+  <!-- Buddy 디렉토리 섹션 -->
+  <view class="section">
+    <text class="section-title">Buddy 目录</text>
+    <text class="section-subtitle">Experts lead you through topics</text>
+    
+    <!-- Buddy 목록 -->
+    <view class="buddy-list">
+      <view class="buddy-item" wx:for="{{buddies}}" wx:key="id" bindtap="viewBuddyDetail" data-id="{{item.id}}">
+        <image class="buddy-avatar" src="{{item.avatar}}"></image>
+        <view class="buddy-info">
+          <text class="buddy-name">{{item.name}}</text>
+          <text class="buddy-intro">{{item.intro}}</text>
+          <view class="buddy-rating">
+            <van-rate value="{{item.rating}}" readonly size="12"/>
+            <text class="review-count">({{item.reviewCount}} reviews)</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+    <!-- Buddy 찾기 버튼 -->
+    <view class="find-buddy">
+        <view class="custom-buddy-button" bindtap="onShowFilter">帮您找Buddy</view>
+    </view>
+</scroll-view>
+
+<!-- 필터 팝업 -->
+<van-popup
+    teleport="body"
+    show="{{ showFilter }}"
+    position="bottom"
+    closeable
+    close-on-click-overlay
+    bind:close="onHideFilter"
+    style="height:90%; border-top-left-radius:12px; border-top-right-radius:12px;"
+    >
+    <view class="filter-header">
+        <text>帮您找Buddy</text>
+    </view>
+
+    <!-- 성별, 연령, 목적, 골프 타수 Dropdown -->
+    <view class="filter-row">
+    <van-dropdown-menu class="dropdown-menu" active-color="#004225">
+        <van-dropdown-item 
+        title="{{ gender || '性别' }}" 
+        options="{{ genderOptions }}" 
+        bind:change="onGenderChange" />
+        
+        <van-dropdown-item 
+        title="{{ age || '年龄' }}" 
+        options="{{ ageOptions }}" 
+        bind:change="onAgeChange" />
+        
+        <van-dropdown-item 
+        title="{{ purpose || '目的' }}" 
+        options="{{ purposeOptions }}" 
+        bind:change="onPurposeChange" />
+        
+        <van-dropdown-item 
+        title="{{ golfScore || '高尔夫成绩' }}" 
+        options="{{ golfScoreOptions }}" 
+        bind:change="onGolfScoreChange" />
+    </van-dropdown-menu>
+    </view>
+
+    <!-- 위치 -->
+    <view class="filter-row">
+    <text class="filter-label">位置</text>
+    <view class="area-display" bindtap="onShowArea">
+        <text>{{ areaName || '请选择地区' }}</text>
+        <van-icon name="arrow" size="16px" />
+    </view>
+    </view>
+
+    <van-area
+    wx:if="{{ showArea }}"
+    area-list="{{ areaList }}"
+    bind:confirm="onAreaConfirm"
+    bind:cancel="onHideArea"
+    />
+
+    <!-- 날짜 선택 버튼 -->
+    <view class="filter-row">
+    <text class="filter-label">日期</text>
+    <view bindtap="onShowCalendar" class="date-picker">
+        <text>{{ selectedDate || '请选择日期' }}</text>
+        <van-icon name="arrow" size="16px" />
+    </view>
+    </view>
+
+    <!-- Calendar 컴포넌트 (숨겨뒀다가 onShowCalendar로 띄움) -->
+    <van-calendar
+        show="{{ showCalendar }}"
+        bind:confirm="onCalendarConfirm"
+        bind:cancel="onHideCalendar"
+        color="#004225"
+    />
+
+    <!-- 확인 버튼 -->
+    <view class="confirm-button" bind:tap="onFilterConfirm">确认</view>
+
+</van-popup>
+
+<!-- 하단 탭바 -->
+<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">
+  <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
+  <van-tabbar-item icon="chat">聊天</van-tabbar-item>
+  <van-tabbar-item icon="calendar-o">约定</van-tabbar-item>
+  <van-tabbar-item icon="user">我的</van-tabbar-item>
+</van-tabbar>

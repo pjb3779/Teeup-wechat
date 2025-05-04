@@ -1,0 +1,167 @@
+/* 부모 요소에 position: relative 추가 */
+.page-container {
+    position: relative; /* 부모 요소에 상대 위치 지정 */
+    height: calc(100vh - 250px);
+  }
+  
+  /* Container 스타일 */
+.container {
+  margin: 15px auto;
+  padding: 20px;
+  width: 350px;
+  height: 230px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;         /* 세로로 쌓고 */
+  justify-content: space-between; /* 위↔아래를 자동으로 벌립니다 */
+  align-items: flex-start;  /* 내부 아이템을 왼쪽으로 정렬 */
+}
+
+  /* Header Menu 3 스타일 */
+  .header-menu {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    font-size: 19px;
+  }
+  
+  /* 텍스트 밑에 바 */
+  .header-line {
+    width: 100%;
+    height: 2px;
+    background-color: #004225FF;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Chat Placeholder 스타일 */
+  .chat-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #565E6CFF;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* 탭바를 고정시킴 */
+  .fixed-tabbar {
+    position: fixed; /* 고정 위치 */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-top: 1px solid #e1e1e1;
+    z-index: 9999; /* 탭바를 가장 위로 설정 */
+  }
+
+  .content{
+      overflow-y: scroll;
+  }
+
+  /* 1) user-info 전체를 절대 위치 + flex 컨테이너로 */
+  .user-info {
+    display: flex;
+    justify-content: space-between; /* 왼쪽(아바타+닉네임)과 오른쪽(아이콘)을 양쪽 정렬 */
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* 2) 아바타 */
+  .user-info .avatar {
+    position: static;     /* global absolute 무시 */
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;   /* 둥근 원 */
+    overflow: hidden;
+    background: #F8DBD0FF;
+  }
+  .user-info-left {
+    display: flex;
+    align-items: center;
+  }
+  /* 3) 아바타 안의 이미지 */
+  .user-info .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* 잘라서 꽉 채우기 */
+  }
+  
+  /* 4) 텍스트 (이름) */
+  .user-info .text {
+    margin-left: 13px;
+    font-weight: 1000;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+    position: relative;
+    white-space: nowrap;       /* 줄 바꿈 방지 */
+    overflow: hidden;          /* 넘치는 텍스트 숨김 */
+    text-overflow: ellipsis;   /* 말줄임표 표시 */  
+    }
+
+    /* ④ 버튼 영역 */
+    .button {
+        text-align: center;
+        margin-top: 8px;                 
+    }
+
+   .container .line {
+    top: 75px; 
+    width: 98%; 
+    height: 0px; 
+    border-top: 2px solid #004225FF;
+    transform: rotate(0deg); 
+  }
+  
+  
+  .calendar-icon {
+    position: absolute;
+    top: 90px; 
+    left: 16px;
+    color: #333;
+  }
+  
+  .clock-icon {
+    position: absolute;
+    top: 130px; 
+    left: 16px;
+    color: #333;
+  }
+
+/* 3) 캘린더 + 날짜 */
+.calendar-display {
+    display: flex;           /* flex 컨테이너 */
+    align-items: center;     /* 아이콘과 텍스트 수직 중앙 정렬 */
+    top: 95px;               /* 원하는 위치 지정 */
+    left: 16px;              /* 왼쪽 여백 */
+  }
+  
+  /* 4) 시계 + 시간 */
+  .clock-display {
+    display: flex;
+    align-items: center;
+    top: 130px;
+    left: 16px;
+  }
+  
+  /* 아이콘과 텍스트 간 간격 */
+  .calendar-display .info-text,
+  .clock-display .info-text {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .warning {
+    margin-left: auto; /* 굳이 없어도 되지만 명확히 오른쪽 정렬 */
+  }

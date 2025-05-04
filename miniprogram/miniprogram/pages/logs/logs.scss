@@ -1,0 +1,273 @@
+/* 기본 스타일 */
+.page {
+  background-color: #f7f8fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 콘텐츠 영역 */
+.content {
+  height: 100%;
+  padding-bottom: 50px; /* 탭바 높이만큼 여백 추가 */
+}
+
+/* 환영 섹션 스타일 */
+.welcome-section {
+  padding: 20px;
+  position: relative;
+  padding-top: 50px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #171A1FFF;
+  display: block;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+  display: block;
+  color: #323233;
+}
+
+/* 위치 정보 섹션 */
+.location-section {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  margin-top: 10px;
+}
+
+.location-text {
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 10px;
+  flex: 1;
+  color: #323233;
+}
+
+/* 아바타 스타일 */
+.avatar {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 섹션 스타일 */
+.section {
+  margin: 15px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  color: #323233;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #969799;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Buddy 목록 스타일 */
+.buddy-list {
+  margin-top: 15px;
+}
+
+.buddy-item {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.buddy-item:last-child {
+  border-bottom: none;
+}
+
+.buddy-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.buddy-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buddy-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #323233;
+}
+
+.buddy-intro {
+  font-size: 13px;
+  color: #969799;
+  margin-top: 2px;
+}
+
+.buddy-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.review-count {
+  font-size: 12px;
+  color: #969799;
+  margin-left: 5px;
+}
+
+/* 커스텀 버튼 스타일 (위의 van-button 스타일과 동일) */
+.custom-buddy-button {
+    width: 90%;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #FFFFFF;
+    background: #004225;
+    border-radius: 6px;
+    margin-left: 20px;
+  }
+  
+  .custom-buddy-button:active {
+    background: #00301B;
+  }
+
+/* 탭바 스타일 */
+.fixed-tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.05);
+}
+
+.location-box {
+    display: flex;
+    align-items: center;  /* 아이콘 + 텍스트 수직 정렬 */
+    padding: 10px 16px;
+    border: 1px solid #ebedf0;
+    border-radius: 20px;
+    background: #ffffff;
+    margin-top: 16px;
+    height: 40px; /* 아이콘 기준 높이 고정 */
+  }
+  
+  .location-text {
+    flex: 1;
+    margin-left: 8px;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 15px;
+  }
+  
+  .top-icons {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+  }
+  
+
+  /* 팝업 헤더 */
+.filter-header {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* 필터 항목 한 줄 */
+  .filter-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+  }
+  
+  .filter-row .dropdown-menu{
+      width: 500px;
+  }
+
+  .filter-label {
+    width: 50px;
+    color: #323233;
+  }
+
+  /* 날짜 선택 박스 */
+  .date-picker {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ebedf0;
+    border-radius: 4px;
+  }
+  
+  .area-display {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ebedf0;
+    border-radius: 4px;
+    color: #323233;
+  }
+
+  .confirm-button{
+    width: 90%;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    background: #004225;
+    color: white;
+    border-radius: 6px;
+    margin-left: 20px;
+  }
+  
+
+  

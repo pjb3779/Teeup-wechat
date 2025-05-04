@@ -1,0 +1,24 @@
+<navigation-bar title="TeeUp" back="{{true}}" color="black" background="#FFF"/>
+<view class="search-container">
+    <van-search 
+    placeholder="검색"
+    value = "{{searchValue}}"
+    focus="{{true}}" 
+    bind:search="onSearch"
+    />
+</view>
+<scroll-view class="content" scroll-y>
+  <!-- 실제 채팅 UI를 이곳에 작성하세요 -->
+  <view class="chat-placeholder">
+    <text>채팅 페이지입니다.</text>
+  </view>
+</scroll-view>
+
+<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">  
+    <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
+  <van-tabbar-item icon="chat">聊天</van-tabbar-item>
+  <van-tabbar-item icon="calendar-o">约定</van-tabbar-item>
+  <van-tabbar-item icon="user">我的</van-tabbar-item>
+</van-tabbar>
+
+
