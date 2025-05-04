@@ -1,18 +1,50 @@
 // pages/index/index.ts
 const APP = getApp<IAppOption>();
+import { areaList } from '@vant/area-data';
+
+function pad(n: number) {
+    if (n < 10) {
+        return '0' + n;
+    } 
+    else {
+        return String(n);
+    }
+}
 
 Page({
   data: {
     active: 0,
     userInfo: {
       avatarUrl: '',
-      nickName: ''
+      nickName: '',
     },
     currentLocation: '',
     showCalendar: false,
     showFilter: false,
-    selectedDate: ''
-  },
+    showArea: false,
+    selectedDate: '',
+    areaList,    
+    areaCode: '',   
+    areaName: '',    
+    gender: '',
+    genderOptions: [
+        { text: '男性', value: '男性' },
+        { text: '女性', value: '女性' }
+    ],
+    age: 0,
+    ageOptions: Array.from({ length: 51 }, (_, i) => {
+        const age = i + 20;
+        return { text: `${age}岁`, value: age };
+    }),
+    golfScore: 0,
+    golfScoreOptions: Array.from({ length: 51 }, (_, i) => {
+        const score = 120 - i;  // 120부터 70까지
+        return {
+          text: `${score}杆`, // 중국어로 '몇 타' 의미
+          value: score,
+        };
+      }),
+    },
 
     onLoad() {
         const userInfo = APP.globalData.userInfo;
@@ -72,25 +104,78 @@ Page({
         this.setData({ showFilter: false });
     },
 
-
-    // 1) 캘린더 열기
+    // 캘린더
     onShowCalendar() {
         this.setData({ showCalendar: true });
     },
-
-    // 2) 캘린더 닫기 (취소)
     onHideCalendar() {
         this.setData({ showCalendar: false });
     },
-
-    // 3) 캘린더에서 날짜 확정
-    onCalendarConfirm(e: any) {
-        // event.detail = ['2022-02-08'] 또는 ['start','end'] 형식
-        const dates = e.detail;
+    onCalendarConfirm(e: WechatMiniprogram.CustomEvent) {
+        const detail = e.detail; // Date | Date[] 
+    
+        let formatted = '';
+        if (detail instanceof Date) {
+          const d = detail;
+          formatted = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+        }
         this.setData({
-        selectedDate: Array.isArray(dates) ? dates.join(' 至 ') : dates,
-        showCalendar: false
+          selectedDate: formatted,
+          showCalendar: false,
+        });
+    },
+
+    // 지역
+    onShowArea(){
+        console.log("지역 열기 클릭됨");
+        this.setData({showArea: true});
+    },
+    onHideArea() {
+        this.setData({ showArea: false });
+    },
+
+    onAreaConfirm(event: WechatMiniprogram.CustomEvent) {
+        const values = event.detail.values as Array<{ code: string; name: string }>;
+        const names = values.map(d => d.name).join(' ');
+        const lastCode = values.length > 0
+          ? values[values.length - 1].code
+          : '';
+    
+        this.setData({
+          areaName: names,
+          areaCode: lastCode,
+          showArea: false,
+        });
+    },
+
+    // 필터 항목들
+    onGenderChange(event: WechatMiniprogram.CustomEvent){
+        const selectedGender = event.detail;
+        this.setData({
+            gender: selectedGender
         })
+    },
+
+    onAgeChange(event: WechatMiniprogram.CustomEvent){
+        const selectedAgeChange = event.detail;
+        this.setData({
+            age: selectedAgeChange
+        })
+    },
+
+    onGolfScoreChange(event: WechatMiniprogram.CustomEvent) {
+        const selectedgolfScore = event.detail;
+        this.setData({ 
+            golfScore: event.detail 
+        });
+    },
+
+
+    // 최종 필터 확인
+    onFilterConfirm() {
+        this.setData({
+            showFilter: false
+        });
     },
 
     change(event: any) {

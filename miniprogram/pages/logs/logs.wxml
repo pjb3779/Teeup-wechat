@@ -54,8 +54,8 @@
     </view>
 </scroll-view>
 
-    <!-- 필터 팝업 -->
-    <van-popup
+<!-- 필터 팝업 -->
+<van-popup
     teleport="body"
     show="{{ showFilter }}"
     position="bottom"
@@ -68,47 +68,54 @@
         <text>帮您找Buddy</text>
     </view>
 
-    <!-- 성별, 연령, 목적 Dropdown -->
+    <!-- 성별, 연령, 목적, 골프 타수 Dropdown -->
     <view class="filter-row">
-        <van-dropdown-menu>
+    <van-dropdown-menu class="dropdown-menu" active-color="#004225">
         <van-dropdown-item 
-            title="{{ gender || '性别' }}" 
-            options="{{ genderOptions }}" 
-            bind:change="onGenderChange" />
-        </van-dropdown-menu>
-        <van-dropdown-menu>
+        title="{{ gender || '性别' }}" 
+        options="{{ genderOptions }}" 
+        bind:change="onGenderChange" />
+        
         <van-dropdown-item 
-            title="{{ age || '年龄' }}" 
-            options="{{ ageOptions }}" 
-            bind:change="onAgeChange" />
-        </van-dropdown-menu>
-        <van-dropdown-menu>
+        title="{{ age || '年龄' }}" 
+        options="{{ ageOptions }}" 
+        bind:change="onAgeChange" />
+        
         <van-dropdown-item 
-            title="{{ purpose || '目的' }}" 
-            options="{{ purposeOptions }}" 
-            bind:change="onPurposeChange" />
-        </van-dropdown-menu>
+        title="{{ purpose || '目的' }}" 
+        options="{{ purposeOptions }}" 
+        bind:change="onPurposeChange" />
+        
+        <van-dropdown-item 
+        title="{{ golfScore || '高尔夫成绩' }}" 
+        options="{{ golfScoreOptions }}" 
+        bind:change="onGolfScoreChange" />
+    </van-dropdown-menu>
     </view>
 
-    <!-- 위치 검색 -->
+    <!-- 위치 -->
     <view class="filter-row">
-        <text class="filter-label">位置</text>
-        <van-search
-        shape="round"
-        placeholder="Search"
-        value="{{ locationKeyword }}"
-        bind:change="onLocationInput"
-        style="flex:1; margin-left:8px;"
-        />
+    <text class="filter-label">位置</text>
+    <view class="area-display" bindtap="onShowArea">
+        <text>{{ areaName || '请选择地区' }}</text>
+        <van-icon name="arrow" size="16px" />
+    </view>
     </view>
 
-    <!-- 날짜 선택 -->
+    <van-area
+    wx:if="{{ showArea }}"
+    area-list="{{ areaList }}"
+    bind:confirm="onAreaConfirm"
+    bind:cancel="onHideArea"
+    />
+
+    <!-- 날짜 선택 버튼 -->
     <view class="filter-row">
-        <text class="filter-label">日期</text>
-        <view bindtap="onShowCalendar" class="date-picker">
+    <text class="filter-label">日期</text>
+    <view bindtap="onShowCalendar" class="date-picker">
         <text>{{ selectedDate || '请选择日期' }}</text>
         <van-icon name="arrow" size="16px" />
-        </view>
+    </view>
     </view>
 
     <!-- Calendar 컴포넌트 (숨겨뒀다가 onShowCalendar로 띄움) -->
@@ -116,18 +123,13 @@
         show="{{ showCalendar }}"
         bind:confirm="onCalendarConfirm"
         bind:cancel="onHideCalendar"
+        color="#004225"
     />
 
     <!-- 확인 버튼 -->
-    <van-button 
-        type="primary" 
-        block 
-        style="margin: 16px;"
-        bind:tap="onFilterConfirm"
-    >
-        确认
-    </van-button>
-    </van-popup>
+    <view class="confirm-button" bind:tap="onFilterConfirm">确认</view>
+
+</van-popup>
 
 <!-- 하단 탭바 -->
 <van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">
