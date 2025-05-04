@@ -6277,6 +6277,7 @@ wx.getSetting({
         golf_avg: number
         /*0 : 아직 모름, 1 : 비슷한 나이대 만나기, 2 : 같은 레벨 친구 만나기 */
         golf_purpose: 0 | 1 | 2
+        bio: string
     }
     interface VibrateLongOption {
         /** 接口调用结束的回调函数（调用成功、失败都会执行） */
@@ -10931,6 +10932,8 @@ Page({
         stop(): void
     }
     interface RequestTask {
+        data: { userInfo: any }
+        statusCode: number
         /** [RequestTask.abort()](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/RequestTask.abort.html)
          *
          * 中断请求任务

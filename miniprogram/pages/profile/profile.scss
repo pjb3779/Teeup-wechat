@@ -1,10 +1,96 @@
-  /* 탭바를 고정시킴 */
+.profile-container {
+    padding: 20rpx 30rpx;
+  }
+  
+  .profile-header {
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 정렬 */
+    align-items: center;
+    margin-bottom: 40rpx;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 30rpx;
+  }
+  
+  .profile-info {
+    flex: 1;
+  }
+  
+  .profile-name {
+    font-size: 36rpx;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .profile-email {
+    font-size: 24rpx;
+    color: #666;
+  }
+  
+  /* 섹션 공통 스타일 */
+  .section, .bio-section {
+    background: #fff;
+    border-radius: 16rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+  }
+  
+  /* 자기소개 섹션 */
+  .bio-section {
+    padding: 20rpx 30rpx;
+  }
+  
+  .bio-title {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    margin-bottom: 15rpx;
+  }
+  
+  .bio-text {
+    font-size: 24rpx;
+    color: #888;
+    line-height: 1.6;
+  }
+  
+  /* Vant 셀 커스텀 스타일 */
+  .van-cell {
+    padding: 28rpx 30rpx !important;
+  }
+  
+  .custom-cell .van-cell__left-icon-wrap {
+    width: 36px !important;
+    height: 36px !important;
+    background: #E7FFF4 !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 12px !important;
+  }
+  
+  .custom-icon {
+    color: #004225 !important;
+    font-size: 22px !important;
+  }
+  
+  .custom-cell:active .van-cell__left-icon-wrap {
+    background: #7EFFC7 !important;
+  }
+  
+  /* 탭바 고정 스타일 */
   .fixed-tabbar {
-    position: fixed; /* 고정 위치 */
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: #fff;
     border-top: 1px solid #e1e1e1;
-    z-index: 9999; /* 탭바를 가장 위로 설정 */
+    z-index: 9999;
   }

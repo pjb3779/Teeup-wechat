@@ -9,7 +9,7 @@ Page({
           gender: 0,
           language: 'en',
           golf_avg: 0,
-          age: 0
+          age: 0,
         },
       },
     
@@ -17,7 +17,12 @@ Page({
       const APP = getApp();
       const userInfo = APP.globalData.userInfo;
       console.log('Loaded userInfo:', userInfo);  // userInfo 객체 확인
-      this.setData({ userInfo });
+
+      if (userInfo) {
+        this.setData({ userInfo });
+      } else {
+        console.error('User info not found!');
+      }
     },
   
     change(event: any) {

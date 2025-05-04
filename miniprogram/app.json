@@ -11,6 +11,11 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
+  "permission":{
+      "scope.userLocation": {
+          "desc": "현재 위치 표시"
+      }
+  },
   "usingComponents": {
     "navigation-bar": "/components/navigation-bar/navigation-bar",
     "van-tabbar": "@vant/weapp/tabbar/index",
@@ -19,7 +24,13 @@
     "van-button": "@vant/weapp/button/index",
     "van-config-provider": "@vant/weapp/config-provider/index",
     "van-rate":"@vant/weapp/rate/index",
-    "van-dialog":"@vant/weapp/dialog/index"
+    "van-dialog":"@vant/weapp/dialog/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-search": "@vant/weapp/search/index"
   },
   "rendererOptions": {
     "skyline": {

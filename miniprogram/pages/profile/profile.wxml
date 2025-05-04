@@ -1,15 +1,69 @@
 <navigation-bar title="TeeUp" back="{{true}}" color="black" background="#FFF"/>
 
 <scroll-view class="content" scroll-y>
-  <view class="profile">
-    <!-- 프로필 이미지 -->
-    <text>프로필</text>
-    <image class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  <view class="profile-container">
+    <!-- 프로필 헤더 섹션 -->
+    <view class="profile-header">
+      <image class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="profile-info">
+        <text class="profile-name">{{userInfo.nickName}}</text>
+        <text class="profile-email">onlybrianwhite@yahoo.com</text>
+      </view>
+    </view>
 
+    <!-- 자기소개 섹션 -->
+    <view class="bio-section">
+      <text class="bio-title">자기소개</text>
+      <view class="bio-container">
+        <text class="bio-text">Nisi ipsum officia consequat ea in non euismod eu. Reprehenderit et exercitation dolore pariatur dolor id aliquip amet nisi laboris.</text>
+      </view>
+    </view>
+
+    <!-- 메뉴 리스트 -->
+    <view class="section">
+      <van-cell 
+        title="Edit Profile" 
+        is-link 
+        link-type="navigateTo" 
+        url="/pages/edit-profile/edit-profile"
+        icon="edit"
+        custom-class="custom-cell"
+        icon-class="custom-icon"
+      />
+      <van-cell 
+        title="Payments" 
+        icon="balance-list" 
+        is-link
+        custom-class="custom-cell"
+        icon-class="custom-icon"
+      />
+      <van-cell 
+        title="Your Promos" 
+        icon="coupon" 
+        is-link
+        custom-class="custom-cell"
+        icon-class="custom-icon"
+      />
+      <van-cell 
+        title="Settings" 
+        icon="setting" 
+        is-link
+        custom-class="custom-cell"
+        icon-class="custom-icon"
+      />
+      <van-cell 
+        title="Support" 
+        icon="service" 
+        is-link
+        custom-class="custom-cell"
+        icon-class="custom-icon"
+      />
+    </view>
   </view>
 </scroll-view>
 
-<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">  
+<!-- 고정 탭바 -->
+<van-tabbar class="fixed-tabbar" active="{{active}}" bind:change="change" active-color="#32d296">
   <van-tabbar-item icon="wap-home">首页</van-tabbar-item>
   <van-tabbar-item icon="chat">聊天</van-tabbar-item>
   <van-tabbar-item icon="calendar-o">约定</van-tabbar-item>

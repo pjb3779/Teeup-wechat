@@ -1,6 +1,6 @@
 <!--like.wxml -->
 <view class="header-menu">
-  <text style="border: 10px;">约定目录</text>
+  <text style="border: 10px; font-size: 20px; margin-top: 20px;">约定目录</text>
 </view>
 
 <view class="header-line"></view> <!-- 텍스트 밑에 바 추가 -->
